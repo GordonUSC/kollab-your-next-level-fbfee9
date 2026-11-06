@@ -1,0 +1,96 @@
+/* Keep the first action ahead of the secondary routes in reading and tab order. */
+.arrival{grid-template-rows:auto auto;row-gap:0}
+.arrival-copy{grid-column:1;grid-row:1;align-self:end;padding-bottom:0}
+.arrival-world{grid-column:2;grid-row:1/3}
+.arrival-utility{grid-column:1;grid-row:2;align-self:start;padding-bottom:25px;position:relative;z-index:2}
+.arrival-utility .arrival-access{margin:6px 0;color:var(--muted)}
+.arrival-utility .arrival-skip{margin-top:6px}
+.station-grid span{font-size:.875rem;line-height:1.35;font-weight:600;padding:12px 4px}
+.station-grid button:active{transform:translateY(1px);border-color:var(--lime);background:#323045}
+.station-grid img{height:auto}
+@media(max-width:800px){
+  .arrival{grid-template-rows:auto auto auto}
+  .arrival-copy{grid-column:1;grid-row:1;display:block;align-self:auto;padding:12px 0 0}
+  .arrival-copy .arrival-lede,.arrival-copy .arrival-caption,.arrival-copy .arrival-progress{display:none}
+  .arrival-copy h1{margin-bottom:0;padding-right:0}
+  .arrival-world{grid-column:1;grid-row:2;margin-top:22px}
+  .arrival-utility{grid-column:1;grid-row:3;padding:12px 0 0;max-width:650px;width:100%;justify-self:center}
+  .arrival-utility .arrival-access{margin:0 0 6px}
+  .arrival-utility .arrival-skip{margin:0}
+  .arrival-playing .arrival-utility .arrival-access{display:none}
+  .arrival-playing .arrival-utility{padding-top:18px}
+  .arrival-playing .arrival-device-link{display:inline-flex}
+  .station-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .station-grid span{font-size:1rem;padding:12px 5px}
+  .station-grid button{padding:7px}
+  /* Instructions, feedback, choices and learning evidence must be readable without zooming. */
+  .page p,#dialog-content p,#dialog-content li,
+  .page .tiny,.page .console-note,.page .result-contribution,.arrival-console>p,
+  .page .session-warning,.page .arrival-compare p{font-size:1rem!important;line-height:1.55!important}
+  .page .button,.page .text-button,.page .option,.page .interest,.page .filter,
+  .page .save-small,.page .usc-tab,.page .chapter-link,.page summary,
+  .page .console-back,.page .arrival-again button,.page .arrival-device-link,
+  .page .arrival-skip,.page .mood-choice>small,.page .scene-input-label,
+  .page .quest-reason-label,.page .quest-reason-label span,.page .reflection-grid label,
+  .page .mission-card label,.page .mentor-note p,.page .callout b,
+  .page .explore-card a,.page .checkpoints a,.page .role-match{font-size:1rem!important;line-height:1.45}
+  .page .mission-card ol,.page .plan-aside ol,.page .companion-steps,
+  .page .usc-detail li,.page .quest-steps li{font-size:1rem;line-height:1.55}
+  .page .mood-choice{min-height:100px}
+  .page .button,.page .filter,.page .save-small,.page .text-button{min-height:44px;white-space:normal}
+  .page .world-note{font-size:1rem;line-height:1.4}
+  .page .world-label{font-size:.875rem;white-space:normal;text-align:center;width:max-content}
+  .page .draft-chip,.page .revision-chip,.page .arrival-preview-flag{font-size:.875rem;line-height:1.5}
+  .page .source-note{overflow-wrap:anywhere}
+  .role-actions{flex-wrap:wrap}
+  .topbar .nav-button{font-size:.875rem;min-height:44px;white-space:normal}
+  .footer-links a,.footer-links button{font-size:.875rem;min-height:44px}
+}
+@media(max-width:500px){
+  .arrival{padding-top:6px}
+  .arrival-kicker{margin-bottom:12px}
+  .arrival-world{margin-top:20px}
+  .arrival-utility{padding-top:16px}
+  .arrival .start-play p{font-size:1rem;line-height:1.45;margin-top:21px}
+  .home-surface .chapter-toggle{font-size:.75rem;line-height:1.3}
+  .world-sticker{display:none}
+  .chapter-grid{grid-template-columns:1fr}
+  .chapter{padding:25px;min-height:0}
+  .chapter h3{font-size:1.5rem}
+  .chapter-symbol{font-size:44px;margin:18px 0}
+  .chapter-link{margin-top:12px}
+  .page .quest-steps{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+  .page .quest-steps li{align-items:flex-start}
+  .page .quest-steps .step-num{flex-shrink:0}
+}
+@media(max-width:360px){
+  .home-surface .topbar{grid-template-columns:minmax(0,1fr) 104px 44px}
+  .home-surface .chapter-toggle{width:104px;font-size:.75rem;gap:5px}
+  .home-surface .chapter-toggle span{display:none}
+}
+@media(max-width:500px){
+  .home-surface .topbar{display:grid;grid-template-columns:minmax(0,1fr) 126px 44px;gap:8px}
+  .home-surface .chapter-toggle{margin-left:0;width:126px;justify-content:center}
+  .home-surface .topbar nav{grid-column:1/-1}
+  .home-surface .wordmark{min-width:0}
+}
+@media(max-width:360px){
+  .home-surface .topbar{grid-template-columns:minmax(0,1fr) 104px 44px;gap:5px}
+  .home-surface .chapter-toggle{width:104px}
+}
+@media(max-width:800px){
+  .page .draft-chip,.page .revision-chip,.page .arrival-preview-flag,
+  .page .reflection-grid textarea,.page .reflection-grid select{font-size:1rem;line-height:1.5}
+}
+@media(max-width:800px){
+  .arrival-kicker,.page .eyebrow,.arrival-console .console-kicker,
+  .making-visual>span{font-size:.875rem;line-height:1.5;letter-spacing:.06em}
+  .companion-art figcaption,footer p,footer>.tiny,
+  .footer-links a,.footer-links button{font-size:1rem;line-height:1.55}
+  .footer-links a,.footer-links button{min-height:44px}
+}
+@media(max-width:800px){
+  .page .revision-nudge,.page .usc-detail h4,.page .usc-tab>span,
+  .page .route-pill,.page .mission-card .mission-time,
+  #dialog-content .source-list small{font-size:1rem;line-height:1.5;letter-spacing:normal}
+}

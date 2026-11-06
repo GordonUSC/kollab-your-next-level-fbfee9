@@ -1,0 +1,50 @@
+/* Legibility floor for phones (Darby, 2026-11-06).
+   Gordon: "the fonts are TINY are these LEGIBLE on PHONES?" Measured at 390px WebKit: 13 text
+   blocks under 14px on the home screen, smallest 6.7px. Loaded last so it wins over the
+   breakpoint-specific sizes in styles.css / arrival.css / learning-support.css / mobile-polish.css.
+   Floors: 14px for labels and eyebrows, 16px for body copy and buttons. Decorative glyphs untouched. */
+@media (max-width: 760px) {
+  /* labels, eyebrows, tags, nav, chips */
+  html body .wordmark, html body .wordmark-sub, html body .home-surface .wordmark,
+  html body .home-surface .wordmark-sub, html body .marquee, html body .home-surface .marquee,
+  html body .chapter-num, html body .chapter-toggle, html body .home-surface .chapter-toggle,
+  html body .chapter-link, html body .eyebrow, html body .hero .eyebrow, html body .arrival-kicker,
+  html body .arrival-console .console-kicker, html body .arrival-progress span, html body .world-sticker,
+  html body .world-label, html body .page .world-label, html body .draft-chip, html body .revision-chip,
+  html body .arrival-preview-flag, html body .hero-details, html body .floating-chip, html body .art-caption,
+  html body .family-tag, html body .fit-tag, html body .route-pill, html body .usc-tab > span,
+  html body .usc-stamp small, html body .game-box small, html body .mission-card .mission-time,
+  html body .quest-steps .step-num, html body .plan-nav span, html body .making-visual > span,
+  html body .station-grid span, html body .reward-badge, html body .footer-brand b,
+  html body .tiny, html body .filter, html body .save-small, html body .source-note,
+  html body .recap-row b, html body .feedback .role-reveal, html body .explore-card > span,
+  html body #dialog-content .source-list small, html body .process-notes .eyebrow,
+  html body .quest-reason-label span, html body .nav-button, html body .topbar .nav-button,
+  html body .role-match, html body .text-button, html body .plan-toolbar .text-button,
+  html body .mini-tabs button, html body .interest, html body .companion-art figcaption,
+  html body .companion-art > .tiny, html body footer > .tiny, html body .arrival-micro-link,
+  html body .arrival-access, html body .arrival-skip, html body .arrival-device-link,
+  html body .console-back, html body .arrival-again button, html body .footer-links a,
+  html body .footer-links button, html body .checkpoints a, html body .explore-card a {
+    font-size: 14px !important;
+    line-height: 1.35;
+  }
+  /* body copy and buttons */
+  html body .footer-brand p, html body .chapter p, html body .hero-lede, html body .hero-note,
+  html body .section-heading p, html body .arrival-lede, html body .arrival-caption p,
+  html body .arrival-console > p, html body .result-contribution, html body .arrival-compare p,
+  html body .feedback p, html body .recap-row p, html body .principle p, html body .climate-card p,
+  html body .four-grid p, html body .callout p, html body .usc-detail p, html body .usc-detail li,
+  html body .explore-card p, html body .checkpoints p, html body .mentor-note p, html body .mission-card p,
+  html body .mission-card ol, html body .plan-aside ol, html body .starter-prompt p,
+  html body #dialog-content p, html body #dialog-content li, html body .quest-content > p,
+  html body .option, html body .signal-card p, html body .role-card > p, html body .belong-banner p,
+  html body .page-intro > p, html body .companion-copy > p, html body .companion-steps,
+  html body .making-world > div > p, html body .quest-steps li, html body .player-choice,
+  html body .mood-choice > b, html body .mood-choice > small, html body .start-play p,
+  html body .session-warning, html body .console-note, html body .button,
+  html body .arrival-result-actions .button, html body .world-note {
+    font-size: 16px !important;
+    line-height: 1.45;
+  }
+}
