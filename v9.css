@@ -1,0 +1,37 @@
+/* v9: clear progress + cause-and-effect feedback for first-time players (Darby, 11/6) */
+.v9-steps{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin:0 0 12px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.07)}
+.v9-dots{display:flex;gap:6px}
+.v9-dots i{width:22px;height:8px;border-radius:99px;background:rgba(255,255,255,.22);transition:background .3s,transform .3s}
+.v9-dots i.done{background:#d7f56a}
+.v9-dots i.now{background:#ffb48a;transform:scaleX(1.25)}
+.v9-steps span{font-size:15px;color:#fff4d6}
+.v9-steps span b{color:#d7f56a}
+.v9-sound{background:transparent;border:1px solid rgba(255,255,255,.35);border-radius:99px;color:inherit;font-size:16px;padding:4px 10px;cursor:pointer}
+.v9-win{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;margin:0 0 14px;padding:12px 14px;border-radius:14px;background:#d7f56a;color:#21172e;font-size:16px;line-height:1.35;animation:v9pop .45s cubic-bezier(.2,1.6,.4,1)}
+.v9-win p{margin:0}
+.v9-spark{font-size:26px;animation:v9spin .8s ease-out}
+.v9-big{background:linear-gradient(90deg,#d7f56a,#ffb48a);font-size:17px}
+@keyframes v9pop{from{transform:scale(.7);opacity:.2}}
+@keyframes v9spin{from{transform:rotate(-180deg) scale(.3)}}
+.v9-goal{margin:-4px 0 12px;font-size:15px;opacity:.85}
+.v9-sign{margin:0 0 12px;padding:12px 14px;border-radius:12px;background:#ffd597;color:#21172e;box-shadow:0 6px 0 #8a5a2b;transform:rotate(-1deg)}
+.v9-sign span{display:block;font-size:11px;letter-spacing:.14em;font-weight:700;opacity:.7}
+.v9-sign b{display:block;font-size:19px;line-height:1.25;min-height:1.25em}
+.v9-play{font-size:18px;padding:14px 22px;width:100%}
+.v9-quiet{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.v9-ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 12px}
+.v9-ba div{border-radius:12px;padding:12px;background:rgba(255,255,255,.08);display:grid;gap:4px}
+.v9-ba div.after{background:#d7f56a;color:#21172e}
+.v9-ba span{font-size:11px;letter-spacing:.14em;font-weight:700;opacity:.75}
+.v9-ba b{font-size:17px;line-height:1.25}
+.v9-ba small{font-size:13px;opacity:.8}
+.arrival-world.v9-pulse,#arrival-world.v9-pulse{animation:v9glow 1.1s ease-out}
+@keyframes v9glow{0%{filter:brightness(1.6) saturate(1.4)}100%{filter:none}}
+/* a clean screen while playing: fewer exits */
+body.arrival-playing #skip-arrival,body.arrival-playing #arrival-device-note{display:none!important}
+.v9-steps span,.v9-goal,.v9-ba small{color:inherit}
+@media (prefers-reduced-motion:reduce){.v9-win,.v9-spark,#arrival-world.v9-pulse,.v9-dots i{animation:none;transition:none}}
+.arrival-console .v9-win p,.arrival-console .v9-win b,.arrival-console .v9-win{color:#21172e!important}
+.arrival-console .v9-ba div.after b,.arrival-console .v9-ba div.after small,.arrival-console .v9-ba div.after span{color:#21172e!important}
+.arrival-console .v9-sign b,.arrival-console .v9-sign span{color:#21172e!important}
+.v9-steps span{display:flex;flex-direction:column;gap:2px;line-height:1.2}

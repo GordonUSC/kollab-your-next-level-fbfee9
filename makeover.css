@@ -1,0 +1,48 @@
+/* STYLE: Quest-log sticker HUD | WHY: first-time teen players need big legible type, chunky tappable choices, and a game HUD that shows progress at a glance; the island art stays the hero | ALT: the v8 soft-pastel editorial look, rejected because it read adult and tiny on phones (Gordon: "the fonts are TINY") */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap");
+:root{--ink:#141022;--deep:#0d0a18;--panel:#1d1731;--panel2:#271f40;--paper:#fff8ec;--muted:#cfc6e6;--line:#3a3158;--lime:#c8ff3d;--peach:#ff9a6b;--lavender:#b8a1ff;--sky:#62d4ff;--radius:18px;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Helvetica Neue",Arial,sans-serif}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body)!important;font-size:17px;line-height:1.5;background:var(--ink);color:var(--paper)}
+h1,h2,h3,h4,.arrival h2,.arrival-console h2{font-family:var(--display)!important;font-weight:800;letter-spacing:-.015em;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(2.6rem,10vw,5.6rem)}
+h2{font-size:clamp(1.7rem,6vw,3rem)}
+.arrival-console h2{font-size:1.65rem;margin:4px 0 12px}
+p,li{font-size:1.04rem}
+/* chunky sticker buttons */
+.button,.player-choice,.mood-choice,.station-grid button,.interest-grid button{font-family:var(--display)!important;font-weight:800!important;border-radius:16px!important;transition:transform .12s ease,box-shadow .12s ease}
+.button.primary,.player-choice,.v9-play{background:var(--lime)!important;color:var(--ink)!important;border:3px solid var(--ink)!important;box-shadow:0 5px 0 var(--ink),0 0 0 3px var(--lime)!important;font-size:1.12rem!important;min-height:56px}
+.button.primary:active,.player-choice:active,.mood-choice:active,.v9-play:active{transform:translateY(4px);box-shadow:0 1px 0 var(--ink)!important}
+.button.outline{border:2px solid var(--paper)!important;color:var(--paper)!important;font-size:1rem!important;min-height:50px}
+.mood-choice{background:var(--paper)!important;color:var(--ink)!important;border:3px solid var(--ink)!important;box-shadow:0 5px 0 var(--lavender)!important;min-height:76px;text-align:left}
+.mood-choice b{font-size:1.2rem}
+.mood-choice small{font-size:.95rem!important;opacity:.8}
+.mood-choice>span{font-size:1.6rem}
+/* the console = a quest card */
+.arrival-console{background:var(--panel)!important;border:2px solid var(--line)!important;border-radius:22px!important;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.console-back,.arrival-again button{font-size:1rem!important;color:var(--sky)!important;text-decoration:underline;text-underline-offset:4px}
+.scene-input-label{font-size:1.02rem!important;font-weight:700}
+#scene-line{font-size:1.15rem!important;line-height:1.35;border-radius:14px!important;border:3px solid var(--lime)!important;background:var(--deep)!important;color:var(--paper)!important;padding:12px!important}
+/* HUD progress */
+.v9-steps{background:var(--deep)!important;border:2px solid var(--line)}
+.v9-dots i{height:10px;width:26px}
+.v9-dots i.done{background:var(--lime)}
+.v9-dots i.now{background:var(--peach)}
+.v9-steps span{font-size:1rem!important}
+.v9-win{background:var(--lime)!important;border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink);font-size:1.05rem}
+.v9-big{background:linear-gradient(100deg,var(--lime),var(--peach))!important}
+/* top bar + PLAY */
+.topbar{border-bottom:0!important}
+#arrival-play,.play-button{font-family:var(--display)!important;font-weight:800!important}
+/* living island: video under the still */
+.world-scene{position:relative}
+.world-scene .v10-island{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;pointer-events:none}
+.arrival-world.route-ready .v10-island,.arrival-world.world-tested .v10-island{opacity:0;transition:opacity .4s}
+/* section cards */
+.explore-card,.chapter-card{border-radius:20px}
+a{text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){.world-scene .v10-island{display:none}.button,.player-choice,.mood-choice{transition:none}}
+.mood-choice b,.mood-choice small,.mood-choice span{color:var(--ink)!important}
+.player-choice{color:var(--ink)!important}
+.v9-win{grid-template-columns:auto 1fr}
+.v9-win .v10-thumb{grid-column:1/-1;width:100%;height:auto;border-radius:12px;border:3px solid var(--ink);animation:v9pop .45s cubic-bezier(.2,1.6,.4,1)}
