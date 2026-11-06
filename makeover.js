@@ -35,6 +35,16 @@
      ba.insertAdjacentElement('beforebegin',d)}
    document.getElementById('arrival-world')?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})},80)},true);
  function pill(){if(document.getElementById('snd-pill'))return;const p=document.createElement('button');p.id='snd-pill';p.type='button';p.className='snd-pill';p.setAttribute('aria-pressed','false');p.setAttribute('aria-label','Sound on or off');p.innerHTML='🔇 Sound <b>OFF</b>';document.body.appendChild(p)}
+ // Audio design: per-world ambient bed (quiet, looped, faded) + word-effect sounds + soft tap. Only when sound is ON.
+ const AMB={calm:'amb-grove',curious:'amb-trail',together:'amb-garden'};const FXS={glow:'fx-glow',arc:'fx-bridge',sprout:'fx-sprout',drops:'fx-water'};let amb=null,ambKey='';
+ const on=()=>!!(window.kollabSoundOn&&window.kollabSoundOn());
+ function fade(a,to,ms,done){if(!a)return;const from=a.volume,t0=performance.now();(function f(){const k=Math.min(1,(performance.now()-t0)/ms);a.volume=from+(to-from)*k;if(k<1)requestAnimationFrame(f);else if(done)done()})()}
+ function setAmb(){const w=document.getElementById('arrival-world');const k=on()&&w?AMB[w.dataset.mood]:'';if(k===ambKey)return;const old=amb;ambKey=k;if(old)fade(old,0,600,()=>old.pause());amb=null;if(k){amb=new Audio('assets/'+k+'.mp3');amb.loop=true;amb.volume=0;amb.play().then(()=>fade(amb,.22,1200)).catch(()=>{})}}
+ function sfx(n,v){if(!on())return;try{const a=new Audio('assets/'+n+'.mp3');a.volume=v||.6;a.play().catch(()=>{})}catch(e){}}
+ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.matches('.mood-choice,.player-choice,.option,.dish,.fb-faces button'))sfx('ui-tap',.45);setTimeout(setAmb,120);
+   if(b.id==='arrival-try-line'){const ta=document.getElementById('scene-line');const hits=words((ta&&ta.value)||'');hits.forEach((h,i)=>{const s=FXS[h.fx];if(s)setTimeout(()=>sfx(s,.55),500+i*450)})}},true);
+ document.addEventListener('visibilitychange',()=>{if(amb){if(document.hidden)amb.pause();else if(on())amb.play().catch(()=>{})}});
+ new MutationObserver(()=>{clearTimeout(setAmb.t);setAmb.t=setTimeout(setAmb,200)}).observe(document.getElementById('arrival-world')||document.body,{attributes:true,attributeFilter:['data-mood']});
  addEventListener('DOMContentLoaded',()=>{island();floor();pill()});
  new MutationObserver(()=>{clearTimeout(floor.t);floor.t=setTimeout(floor,60)}).observe(document.documentElement,{subtree:true,childList:true});
  addEventListener('resize',()=>{clearTimeout(floor.t);floor.t=setTimeout(floor,120)});
