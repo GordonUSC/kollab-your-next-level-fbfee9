@@ -78,3 +78,5 @@ a{text-underline-offset:3px}
 .v10-hits span{background:rgba(98,212,255,.15);border-radius:99px;padding:6px 10px;font-size:.98rem}
 .v10-hits small{display:block;color:var(--muted);font-size:.95rem}
 @media (prefers-reduced-motion:reduce){.v10-fx .fx{animation:none;opacity:1}}
+.feedback.ai-avoid{border:3px solid #ff9a6b!important;background:rgba(255,154,107,.12)!important;border-radius:16px}
+.feedback.ai-avoid h3{color:#ff9a6b}
