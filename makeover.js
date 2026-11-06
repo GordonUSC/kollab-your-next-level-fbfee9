@@ -34,7 +34,8 @@
      d.innerHTML=hits.length?'<b>Your words made the scene react:</b><div>'+hits.map(h=>`<span>${h.emoji} “${h.word}” → ${h.label}</span>`).join('')+'</div><small>Scroll up to see it. The scene knows some words, like lantern, bridge, seed, sign, map and stars.</small>':'<b>No reaction words this time.</b><small>The scene reacts to some words, like lantern, bridge, seed, sign, map and stars. Revise your line to try one!</small>';
      ba.insertAdjacentElement('beforebegin',d)}
    document.getElementById('arrival-world')?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})},80)},true);
- addEventListener('DOMContentLoaded',()=>{island();floor()});
+ function pill(){if(document.getElementById('snd-pill'))return;const p=document.createElement('button');p.id='snd-pill';p.type='button';p.className='snd-pill';p.setAttribute('aria-pressed','false');p.setAttribute('aria-label','Sound on or off');p.innerHTML='🔇 Sound <b>OFF</b>';document.body.appendChild(p)}
+ addEventListener('DOMContentLoaded',()=>{island();floor();pill()});
  new MutationObserver(()=>{clearTimeout(floor.t);floor.t=setTimeout(floor,60)}).observe(document.documentElement,{subtree:true,childList:true});
  addEventListener('resize',()=>{clearTimeout(floor.t);floor.t=setTimeout(floor,120)});
 })();

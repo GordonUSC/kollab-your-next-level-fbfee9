@@ -80,3 +80,7 @@ a{text-underline-offset:3px}
 @media (prefers-reduced-motion:reduce){.v10-fx .fx{animation:none;opacity:1}}
 .feedback.ai-avoid{border:3px solid #ff9a6b!important;background:rgba(255,154,107,.12)!important;border-radius:16px}
 .feedback.ai-avoid h3{color:#ff9a6b}
+/* clear sound switch, always visible */
+.snd-pill{position:fixed;bottom:max(14px,env(safe-area-inset-bottom,0px));left:max(14px,env(safe-area-inset-left,0px));z-index:70;min-height:44px;padding:8px 14px;border-radius:99px;border:3px solid var(--ink);background:var(--paper);color:var(--ink);font:700 16px/1 var(--body);box-shadow:0 4px 0 var(--ink);cursor:pointer}
+.snd-pill b{font-family:var(--display);font-weight:800}
+.snd-pill[aria-pressed="true"]{background:var(--lime)}
